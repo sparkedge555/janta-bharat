@@ -1,0 +1,1647 @@
+/* ===================================================================
+   JANTA BHARAT AAWASIYA VIDYALAYA — GLOBAL STYLESHEET
+   File: assets/css/main.css
+   This single stylesheet is shared by EVERY page of the site.
+   Structure of this file:
+     1. Design Tokens (CSS variables — colors, type, spacing)
+     2. Reset & Base Styles
+     3. Typography
+     4. Layout Utilities (container, grid, sections)
+     5. Buttons
+     6. Site Header / Navbar
+     7. Site Footer
+     8. Cards & Components (feature cards, stat cards, etc.)
+     9. Hero Section
+     10. Notice Ticker
+     11. Stats Counter Band
+     12. Testimonial Carousel
+     13. Gallery Grid + Lightbox
+     14. Accordion / FAQ
+     15. Toast Notification
+     16. WhatsApp Floating Button
+     17. SparkEdge Footer Credit + Service Popup
+     18. Scroll Reveal Animations
+     19. Responsive Breakpoints
+     20. Reduced Motion Support
+   =================================================================== */
+
+
+/* ===================================================================
+   1. DESIGN TOKENS
+   Palette concept: "Chalkboard & Marigold" — a deep campus-green
+   (chalkboard / playing field) paired with a warm marigold gold
+   (festival, sunrise over the hostel courtyard) on a warm paper
+   cream base. Slab-serif display type for academic gravitas,
+   humanist sans for body copy, and a small-caps utility face for
+   labels/eyebrows.
+   =================================================================== */
+:root {
+  /* --- Brand Colors --- */
+  --color-green-900:   #1F3D2E;   /* deep chalkboard green - primary */
+  --color-green-700:   #2E5C45;   /* lighter green for hovers/accents */
+  --color-gold-500:    #E0A526;   /* marigold gold - primary accent */
+  --color-gold-600:    #C68A12;   /* darker gold for hover/active */
+  --color-cream-100:   #FBF6EC;   /* warm paper background */
+  --color-cream-200:   #F3ECDC;   /* slightly deeper cream for sections */
+  --color-ink-900:     #1A1A17;   /* near-black text */
+  --color-ink-600:     #5B5A52;   /* muted text */
+  --color-line-200:    #E3DCC9;   /* hairline / rule color */
+  --color-white:       #FFFFFF;
+  --color-success:     #2E7D4F;
+  --color-error:       #B23A2E;
+
+  /* --- Typography --- */
+  --font-display: "Fraunces", "Georgia", serif;       /* slab/display serif - headings */
+  --font-body:    "Source Sans 3", "Segoe UI", sans-serif; /* humanist sans - body */
+  --font-utility: "Source Sans 3", sans-serif;        /* labels/eyebrows, letter-spaced */
+
+  /* --- Type Scale (rem) --- */
+  --fs-h1: clamp(2.4rem, 5vw, 4.2rem);
+  --fs-h2: clamp(1.9rem, 3.4vw, 2.8rem);
+  --fs-h3: clamp(1.3rem, 2.2vw, 1.7rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9rem;
+  --fs-eyebrow: 0.8rem;
+
+  /* --- Spacing Scale --- */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* --- Layout --- */
+  --container-max: 1180px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-soft: 0 10px 30px -12px rgba(31, 61, 46, 0.25);
+  --shadow-card: 0 6px 20px -8px rgba(31, 61, 46, 0.18);
+
+  /* --- Motion --- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 200ms;
+  --duration-base: 450ms;
+  --duration-slow: 800ms;
+}
+
+
+/* ===================================================================
+   2. RESET & BASE STYLES
+   =================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Account for sticky navbar when jumping to in-page anchors */
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  color: var(--color-ink-900);
+  background-color: var(--color-cream-100);
+  /* Subtle ruled-notebook texture on the page background, very faint */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 39px,
+    rgba(31, 61, 46, 0.035) 40px
+  );
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-green-700);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+a:hover {
+  color: var(--color-gold-600);
+}
+
+/* Visible keyboard focus state for accessibility on all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-gold-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+svg {
+  display: block;
+}
+
+
+/* ===================================================================
+   3. TYPOGRAPHY
+   =================================================================== */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--color-green-900);
+  line-height: 1.15;
+  margin: 0 0 0.5em 0;
+  font-weight: 600;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+p { margin: 0 0 1em 0; }
+
+/* Small all-caps "eyebrow" label used above section headings */
+.eyebrow {
+  font-family: var(--font-utility);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold-600);
+  display: inline-block;
+  margin-bottom: var(--space-xs);
+}
+
+.section-heading {
+  max-width: 640px;
+  margin-bottom: var(--space-lg);
+}
+
+.section-heading--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--color-ink-600);
+}
+
+
+/* ===================================================================
+   4. LAYOUT UTILITIES
+   =================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section {
+  padding: var(--space-2xl) 0;
+}
+
+.section--alt {
+  background-color: var(--color-cream-200);
+}
+
+.section--green {
+  background-color: var(--color-green-900);
+  color: var(--color-cream-100);
+}
+
+.section--green h2,
+.section--green h3 {
+  color: var(--color-cream-100);
+}
+
+/* Generic responsive grid: pass --cols on the element or rely on auto-fit */
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.grid--auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Ruled divider — references the notebook-line signature motif */
+.ruled-divider {
+  border: none;
+  height: 1px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--color-line-200) 0,
+    var(--color-line-200) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  margin: var(--space-xl) 0;
+}
+
+
+/* ===================================================================
+   5. BUTTONS
+   =================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-utility);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  padding: 0.85em 1.7em;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out),
+              background-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: var(--color-gold-500);
+  color: var(--color-green-900);
+  border-color: var(--color-gold-500);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gold-600);
+  border-color: var(--color-gold-600);
+  color: var(--color-green-900);
+  box-shadow: var(--shadow-card);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-cream-100);
+  border-color: rgba(251, 246, 236, 0.55);
+}
+
+.btn-outline:hover {
+  background-color: rgba(251, 246, 236, 0.12);
+  border-color: var(--color-cream-100);
+  color: var(--color-cream-100);
+}
+
+/* Variant for use on light backgrounds (e.g. inside cards) */
+.btn-outline--dark {
+  color: var(--color-green-900);
+  border-color: var(--color-green-900);
+}
+
+.btn-outline--dark:hover {
+  background-color: var(--color-green-900);
+  color: var(--color-cream-100);
+}
+
+.btn svg {
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+}
+
+
+/* ===================================================================
+   6. SITE HEADER / NAVBAR
+   Sticky navigation shared across every page.
+   =================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: rgba(251, 246, 236, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid transparent;
+  transition: box-shadow var(--duration-base) var(--ease-out),
+              border-color var(--duration-base) var(--ease-out),
+              background-color var(--duration-base) var(--ease-out);
+}
+
+/* JS adds .site-header--scrolled once the page is scrolled past threshold */
+.site-header--scrolled {
+  box-shadow: 0 4px 20px -8px rgba(31, 61, 46, 0.25);
+  border-bottom-color: var(--color-line-200);
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: 0.9rem 0;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--color-green-900);
+  line-height: 1.2;
+}
+
+.nav-brand:hover {
+  color: var(--color-green-900);
+}
+
+.nav-brand__logo {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--color-green-900);
+}
+
+.nav-brand__text small {
+  display: block;
+  font-family: var(--font-utility);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold-600);
+  margin-top: 0.15em;
+}
+
+/* Desktop menu list */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  font-family: var(--font-utility);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--color-ink-900);
+  position: relative;
+  padding: 0.3rem 0;
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-gold-500);
+  transition: width var(--duration-fast) var(--ease-out);
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+  width: 100%;
+}
+
+.nav-menu a.active {
+  color: var(--color-green-900);
+}
+
+.nav-cta {
+  margin-left: var(--space-sm);
+}
+
+/* Mobile hamburger toggle button — hidden on desktop */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  z-index: 110;
+}
+
+.nav-toggle svg {
+  width: 28px;
+  height: 28px;
+  color: var(--color-green-900);
+}
+
+
+/* ===================================================================
+   7. SITE FOOTER
+   Identical structure on every page.
+   =================================================================== */
+.site-footer {
+  background-color: var(--color-green-900);
+  color: rgba(251, 246, 236, 0.85);
+  padding-top: var(--space-2xl);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.2fr 1.2fr;
+  gap: var(--space-lg);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid rgba(251, 246, 236, 0.12);
+}
+
+.footer-col h4 {
+  color: var(--color-cream-100);
+  font-size: 1.05rem;
+  margin-bottom: var(--space-sm);
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: var(--space-sm);
+}
+
+.footer-brand__logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: var(--color-gold-500);
+  flex-shrink: 0;
+}
+
+.footer-brand__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-cream-100);
+}
+
+.footer-tagline {
+  font-size: var(--fs-small);
+  color: rgba(251, 246, 236, 0.7);
+  margin-bottom: var(--space-md);
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgba(251, 246, 236, 0.08);
+  color: var(--color-cream-100);
+  transition: background-color var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+}
+
+.footer-social a:hover {
+  background-color: var(--color-gold-500);
+  color: var(--color-green-900);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-links a {
+  color: rgba(251, 246, 236, 0.75);
+  font-size: var(--fs-small);
+}
+
+.footer-links a:hover {
+  color: var(--color-gold-500);
+}
+
+.footer-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: var(--fs-small);
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.footer-contact svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-gold-500);
+}
+
+.footer-contact a {
+  color: rgba(251, 246, 236, 0.85);
+}
+
+.footer-map {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(251, 246, 236, 0.15);
+  margin-bottom: var(--space-sm);
+}
+
+.footer-map iframe {
+  width: 100%;
+  height: 140px;
+  border: 0;
+  filter: grayscale(35%) contrast(1.05);
+}
+
+/* Bottom copyright bar */
+.footer-bottom {
+  padding: var(--space-md) 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  font-size: var(--fs-small);
+  color: rgba(251, 246, 236, 0.6);
+}
+
+.footer-bottom a {
+  color: rgba(251, 246, 236, 0.75);
+}
+
+.footer-bottom a:hover {
+  color: var(--color-gold-500);
+}
+
+
+/* ===================================================================
+   17. SPARKEDGE CREDIT + SERVICES POPUP
+   A small "Designed by SparkEdge" credit in the footer bottom bar.
+   Clicking it opens a modal card pitching web services to visitors,
+   with a button through to the SparkEdge agency site.
+   =================================================================== */
+.sparkedge-credit {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: var(--fs-small);
+  color: rgba(251, 246, 236, 0.75);
+  cursor: pointer;
+  text-decoration: underline dotted rgba(251, 246, 236, 0.35);
+  text-underline-offset: 3px;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.sparkedge-credit:hover {
+  color: var(--color-gold-500);
+}
+
+/* Modal overlay */
+.sparkedge-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  background-color: rgba(26, 26, 23, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.sparkedge-modal.is-open {
+  display: flex;
+}
+
+.sparkedge-modal__card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--color-cream-100);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-soft);
+  animation: sparkedge-pop var(--duration-base) var(--ease-out);
+}
+
+@keyframes sparkedge-pop {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.sparkedge-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-ink-600);
+  padding: 0.3rem;
+  border-radius: 50%;
+  transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+}
+
+.sparkedge-modal__close:hover {
+  background-color: var(--color-cream-200);
+  color: var(--color-ink-900);
+}
+
+.sparkedge-modal__close svg {
+  width: 22px;
+  height: 22px;
+}
+
+.sparkedge-modal__eyebrow {
+  margin-bottom: var(--space-xs);
+}
+
+.sparkedge-modal__title {
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.sparkedge-modal__desc {
+  font-size: var(--fs-small);
+  color: var(--color-ink-600);
+  margin-bottom: var(--space-md);
+}
+
+.sparkedge-modal__services {
+  list-style: none;
+  margin: 0 0 var(--space-md) 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.sparkedge-modal__services li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: var(--fs-small);
+}
+
+.sparkedge-modal__services svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--color-gold-600);
+}
+
+.sparkedge-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+
+/* ===================================================================
+   8. CARDS & COMPONENTS
+   =================================================================== */
+
+/* --- Feature Cards ("Why Choose Us") --- */
+.feature-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-md);
+  text-align: left;
+  transition: transform var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out),
+              border-color var(--duration-base) var(--ease-out);
+}
+
+.feature-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--color-gold-500);
+}
+
+.feature-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-cream-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-sm);
+  transition: background-color var(--duration-base) var(--ease-out);
+}
+
+.feature-card:hover .feature-card__icon {
+  background-color: var(--color-gold-500);
+}
+
+.feature-card__icon svg {
+  width: 26px;
+  height: 26px;
+  color: var(--color-green-900);
+}
+
+.feature-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.feature-card p {
+  font-size: var(--fs-small);
+  color: var(--color-ink-600);
+  margin: 0;
+}
+
+/* --- Fee Snapshot Cards --- */
+.fee-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out);
+}
+
+.fee-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.fee-card__group {
+  font-family: var(--font-utility);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--color-gold-600);
+  margin-bottom: var(--space-xs);
+}
+
+.fee-card__amount {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  color: var(--color-green-900);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.fee-card__amount span {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-ink-600);
+}
+
+.fee-card__period {
+  font-size: var(--fs-small);
+  color: var(--color-ink-600);
+  margin: 0.3rem 0 0 0;
+}
+
+/* --- About Snapshot --- */
+.about-snapshot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.about-snapshot__media {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.about-snapshot__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+/* Decorative gold corner frame referencing the notebook-line motif */
+.about-snapshot__media::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 2px solid var(--color-gold-500);
+  border-radius: var(--radius-md);
+  pointer-events: none;
+}
+
+.about-snapshot__body p {
+  font-size: 1.05rem;
+}
+
+.read-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-utility);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-green-900);
+  margin-top: var(--space-xs);
+}
+
+.read-more-link svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.read-more-link:hover svg {
+  transform: translateX(4px);
+}
+
+
+/* ===================================================================
+   9. HERO SECTION
+   =================================================================== */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--color-cream-100);
+}
+
+/* Background image/video layer */
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__media img,
+.hero__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Parallax-like effect handled via background-attachment fallback + JS translateY */
+}
+
+/* Dark green gradient overlay for text legibility, tying into brand color */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(31, 61, 46, 0.55) 0%,
+    rgba(31, 61, 46, 0.78) 60%,
+    rgba(31, 61, 46, 0.92) 100%
+  );
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
+
+.hero__eyebrow {
+  color: var(--color-gold-500);
+}
+
+.hero__title {
+  color: var(--color-cream-100);
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  margin-bottom: var(--space-sm);
+}
+
+.hero__title .hero__title-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: hero-line-in var(--duration-slow) var(--ease-out) forwards;
+}
+
+.hero__title .hero__title-line:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+@keyframes hero-line-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero__subtitle {
+  font-size: 1.15rem;
+  color: rgba(251, 246, 236, 0.88);
+  max-width: 540px;
+  margin-bottom: var(--space-lg);
+  opacity: 0;
+  animation: hero-fade-in var(--duration-slow) var(--ease-out) forwards;
+  animation-delay: 0.4s;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  opacity: 0;
+  animation: hero-fade-in var(--duration-slow) var(--ease-out) forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Small scroll-down indicator at base of hero */
+.hero__scroll-cue {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(251, 246, 236, 0.75);
+  font-family: var(--font-utility);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero__scroll-cue svg {
+  width: 20px;
+  height: 20px;
+  animation: scroll-cue-bounce 2.2s ease-in-out infinite;
+}
+
+@keyframes scroll-cue-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+
+/* ===================================================================
+   10. NOTICE TICKER / ANNOUNCEMENTS BAND
+   =================================================================== */
+.notice-band {
+  background-color: var(--color-gold-500);
+  color: var(--color-green-900);
+  overflow: hidden;
+  position: relative;
+}
+
+.notice-band__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.notice-band__label {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-utility);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background-color: var(--color-green-900);
+  color: var(--color-cream-100);
+  padding: 0.6rem var(--space-md);
+}
+
+.notice-band__label svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* The scrolling track of notice items */
+.notice-band__track {
+  display: flex;
+  gap: var(--space-2xl);
+  white-space: nowrap;
+  padding: 0.6rem 0;
+  animation: notice-scroll 32s linear infinite;
+  will-change: transform;
+}
+
+.notice-band:hover .notice-band__track {
+  animation-play-state: paused;
+}
+
+@keyframes notice-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.notice-band__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-utility);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.notice-band__item svg {
+  width: 16px;
+  height: 16px;
+}
+
+
+/* ===================================================================
+   11. STATS COUNTER BAND
+   =================================================================== */
+.stats-band {
+  background-color: var(--color-green-900);
+  color: var(--color-cream-100);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  text-align: center;
+}
+
+.stat-item__number {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 700;
+  color: var(--color-gold-500);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.stat-item__label {
+  font-family: var(--font-utility);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(251, 246, 236, 0.8);
+}
+
+
+/* ===================================================================
+   12. TESTIMONIAL / ACHIEVEMENTS CAROUSEL
+   =================================================================== */
+.carousel {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.carousel__track {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.carousel__slides {
+  display: flex;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.carousel__slide {
+  flex: 0 0 100%;
+  padding: var(--space-lg);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line-200);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.carousel__quote-icon {
+  width: 34px;
+  height: 34px;
+  color: var(--color-gold-500);
+  margin: 0 auto var(--space-sm);
+}
+
+.carousel__quote {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--color-green-900);
+  margin-bottom: var(--space-sm);
+}
+
+.carousel__author {
+  font-family: var(--font-utility);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-600);
+}
+
+/* Prev/Next controls */
+.carousel__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.carousel__btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--color-line-200);
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-green-900);
+  transition: background-color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+}
+
+.carousel__btn:hover {
+  background-color: var(--color-gold-500);
+  transform: scale(1.06);
+}
+
+.carousel__btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.carousel__dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--color-line-200);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+}
+
+.carousel__dot.is-active {
+  background-color: var(--color-gold-500);
+  transform: scale(1.25);
+}
+
+
+/* ===================================================================
+   13. GALLERY GRID + LIGHTBOX
+   =================================================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+  gap: var(--space-xs);
+}
+
+/* Make a couple of tiles larger for visual rhythm */
+.gallery-grid__item:nth-child(1),
+.gallery-grid__item:nth-child(6) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-grid__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.gallery-grid__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.gallery-grid__item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-grid__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(31, 61, 46, 0.55) 100%);
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.gallery-grid__item:hover::after {
+  opacity: 1;
+}
+
+.gallery-grid__caption {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  color: var(--color-cream-100);
+  font-family: var(--font-utility);
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+}
+
+.gallery-grid__item:hover .gallery-grid__caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Lightbox overlay */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(26, 26, 23, 0.9);
+  padding: var(--space-md);
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox__image-wrap {
+  max-width: 90vw;
+  max-height: 80vh;
+}
+
+.lightbox__image-wrap img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  animation: sparkedge-pop var(--duration-fast) var(--ease-out);
+}
+
+.lightbox__close,
+.lightbox__prev,
+.lightbox__next {
+  position: absolute;
+  background: rgba(251, 246, 236, 0.1);
+  border: 1px solid rgba(251, 246, 236, 0.25);
+  color: var(--color-cream-100);
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.lightbox__close:hover,
+.lightbox__prev:hover,
+.lightbox__next:hover {
+  background-color: var(--color-gold-500);
+  color: var(--color-green-900);
+}
+
+.lightbox__close { top: var(--space-md); right: var(--space-md); }
+.lightbox__prev { left: var(--space-md); top: 50%; transform: translateY(-50%); }
+.lightbox__next { right: var(--space-md); top: 50%; transform: translateY(-50%); }
+
+.lightbox__close svg,
+.lightbox__prev svg,
+.lightbox__next svg {
+  width: 22px;
+  height: 22px;
+}
+
+.lightbox__caption {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-cream-100);
+  font-family: var(--font-utility);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+
+/* ===================================================================
+   14. ACCORDION / FAQ
+   (Shared styles used by pages such as fee.html / admission.html)
+   =================================================================== */
+.accordion-item {
+  border-bottom: 1px solid var(--color-line-200);
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-green-900);
+  padding: var(--space-sm) 0;
+  cursor: pointer;
+}
+
+.accordion-trigger svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.accordion-item.is-open .accordion-trigger svg {
+  transform: rotate(180deg);
+}
+
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--duration-base) var(--ease-out);
+}
+
+.accordion-panel__inner {
+  padding-bottom: var(--space-sm);
+  font-size: var(--fs-small);
+  color: var(--color-ink-600);
+}
+
+
+/* ===================================================================
+   15. TOAST NOTIFICATION
+   =================================================================== */
+.toast {
+  position: fixed;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background-color: var(--color-green-900);
+  color: var(--color-cream-100);
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-utility);
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-out), transform var(--duration-base) var(--ease-out);
+  z-index: 1100;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-gold-500);
+}
+
+
+/* ===================================================================
+   16. WHATSAPP FLOATING BUTTON
+   Fixed bottom-right on every page, links to wa.me chat.
+   =================================================================== */
+.whatsapp-fab {
+  position: fixed;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  z-index: 900;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  color: var(--color-white);
+  animation: whatsapp-pulse 2.6s ease-in-out infinite;
+}
+
+.whatsapp-fab:hover {
+  color: var(--color-white);
+  transform: scale(1.07);
+}
+
+.whatsapp-fab svg {
+  width: 30px;
+  height: 30px;
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% { box-shadow: var(--shadow-soft), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  50% { box-shadow: var(--shadow-soft), 0 0 0 12px rgba(37, 211, 102, 0); }
+}
+
+
+/* ===================================================================
+   18. SCROLL REVEAL ANIMATIONS
+   Elements with class "reveal" start hidden/offset; JS adds
+   "is-visible" via IntersectionObserver when scrolled into view.
+   =================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional stagger helper classes for groups of cards */
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+.reveal-delay-5 { transition-delay: 0.4s; }
+.reveal-delay-6 { transition-delay: 0.48s; }
+
+
+/* ===================================================================
+   19. RESPONSIVE BREAKPOINTS
+   =================================================================== */
+
+/* Tablet and below */
+@media (max-width: 991px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .about-snapshot {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 140px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 var(--space-sm);
+  }
+
+  .section {
+    padding: var(--space-xl) 0;
+  }
+
+  /* Hide desktop menu, show hamburger */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(78vw, 320px);
+    background-color: var(--color-cream-100);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--space-md);
+    padding: 6rem var(--space-lg) var(--space-lg);
+    box-shadow: -8px 0 30px -10px rgba(31, 61, 46, 0.3);
+    transform: translateX(100%);
+    transition: transform var(--duration-base) var(--ease-out);
+  }
+
+  .nav-menu.is-open {
+    transform: translateX(0);
+  }
+
+  .nav-menu a {
+    font-size: 1.05rem;
+  }
+
+  .nav-cta {
+    margin-left: 0;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 120px;
+  }
+
+  .gallery-grid__item:nth-child(1),
+  .gallery-grid__item:nth-child(6) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .lightbox__prev,
+  .lightbox__next {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+
+/* ===================================================================
+   20. REDUCED MOTION SUPPORT
+   Disable non-essential animations for users who prefer reduced motion.
+   =================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero__title-line,
+  .hero__subtitle,
+  .hero__actions {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+
+  .notice-band__track {
+    animation: none;
+  }
+
+  .whatsapp-fab {
+    animation: none;
+  }
+}

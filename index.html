@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<!--
+  ===================================================================
+  JANTA BHARAT AAWASIYA VIDYALAYA — HOME PAGE
+  File: index.html
+
+  This page uses the shared global stylesheet (assets/css/main.css)
+  and shared global script (assets/js/main.js). No page-specific CSS
+  or JS files are used — only a tiny inline style block for the hero
+  background image, since that is unique to this page.
+
+  Page sections, in order:
+    - <head> : SEO meta tags, Open Graph, canonical, JSON-LD schema
+    - Site Header / Navbar (shared structure — copy to every page)
+    - Notice / Announcements ticker band
+    - Hero section (video/image background, headline, CTAs)
+    - Welcome / About snapshot
+    - "Why Choose Us" feature cards
+    - Classes & Fees snapshot
+    - Stats counter band
+    - Testimonials / achievements carousel
+    - Photo gallery preview + lightbox
+    - Final call-to-action band
+    - Site Footer (shared structure — copy to every page)
+    - SparkEdge services popup modal
+    - Floating WhatsApp button
+  ===================================================================
+-->
+<html lang="en">
+<head>
+  <!-- ============ CHARACTER SET & VIEWPORT ============ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============ PRIMARY SEO META TAGS ============ -->
+  <!-- Title kept under ~60 characters, includes brand + location + intent keyword -->
+  <title>Janta Bharat Aawasiya Vidyalaya | Best Residential School in Kosiyapatti | Admissions Open</title>
+
+  <!-- Meta description ~150 characters with a clear call to action -->
+  <meta name="description" content="Janta Bharat Aawasiya Vidyalaya, Kosiyapatti (Pin 852214) — a trusted residential school since 2015 offering quality education, hostel facilities & admissions for Nursery to Class 8. Apply now." />
+
+  <!-- Robots directive: allow full indexing and following of links -->
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical URL — update to the final live domain once hosted -->
+  <link rel="canonical" href="https://www.jantabharatschool.in/index.html" />
+
+  <!-- Keywords (minor ranking weight today, still useful for clarity) -->
+  <meta name="keywords" content="Janta Bharat Aawasiya Vidyalaya, residential school Kosiyapatti, boarding school Kosiyapatti, best school near me, school admission 852214, hostel school" />
+
+  <!-- Author / publisher info -->
+  <meta name="author" content="Janta Bharat Aawasiya Vidyalaya" />
+
+  <!-- ============ OPEN GRAPH (Facebook/WhatsApp link previews) ============ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Janta Bharat Aawasiya Vidyalaya" />
+  <meta property="og:title" content="Janta Bharat Aawasiya Vidyalaya | Best Residential School in Kosiyapatti | Admissions Open" />
+  <meta property="og:description" content="A trusted residential school in Kosiyapatti since 2015 — quality education, safe hostel facilities, and admissions open for Nursery to Class 8." />
+  <meta property="og:image" content="https://www.jantabharatschool.in/assets/images/og-cover.jpg" />
+  <meta property="og:url" content="https://www.jantabharatschool.in/index.html" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- ============ TWITTER CARD ============ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Janta Bharat Aawasiya Vidyalaya | Residential School in Kosiyapatti" />
+  <meta name="twitter:description" content="Quality education and safe hostel life in Kosiyapatti since 2015. Admissions open for Nursery to Class 8." />
+  <meta name="twitter:image" content="https://www.jantabharatschool.in/assets/images/og-cover.jpg" />
+
+  <!-- ============ FAVICONS ============ -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+
+  <!-- ============ GLOBAL STYLESHEET ============ -->
+  <!-- Single shared CSS file used by every page of the site -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <!-- ============ GOOGLE FONTS ============ -->
+  <!-- Fraunces (display/heading serif) + Source Sans 3 (body/utility sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ============ JSON-LD STRUCTURED DATA: EducationalOrganization ============ -->
+  <!-- Helps Google understand this is a school, with NAP, geo-location, and founding date -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Janta Bharat Aawasiya Vidyalaya",
+    "alternateName": "Janta Bharat Residential School",
+    "description": "A residential (boarding) school in Kosiyapatti offering quality education and hostel facilities for students from Nursery to Class 8, established in 2015.",
+    "url": "https://www.jantabharatschool.in/",
+    "logo": "https://www.jantabharatschool.in/assets/images/logo.png",
+    "image": "https://www.jantabharatschool.in/assets/images/og-cover.jpg",
+    "telephone": "+91-8877225674",
+    "foundingDate": "2015",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Janta Bharat Aawasiya Vidyalaya, Kosiyapatti",
+      "addressLocality": "Kosiyapatti",
+      "postalCode": "852214",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "25.9000",
+      "longitude": "86.5500"
+    },
+    "sameAs": [
+      "https://www.facebook.com/",
+      "https://www.instagram.com/"
+    ]
+  }
+  </script>
+
+  <!-- ============ MINOR PAGE-SPECIFIC STYLE ============ -->
+  <!-- Only the hero background image is unique to this page, so it is
+       set here rather than creating a separate stylesheet -->
+  <style>
+    .hero__media img {
+      /* Replace with an actual high-resolution campus photo */
+      object-position: center 35%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =================================================================
+       SHARED SITE HEADER / NAVBAR
+       Copy this exact <header> block, unchanged, onto every page.
+       Only the "active" link differs — initActiveNavLink() in main.js
+       handles that automatically by comparing the current filename.
+       ================================================================= -->
+  <header class="site-header">
+    <div class="container nav-bar">
+
+      <!-- Brand / logo: links back to home from every page -->
+      <a href="index.html" class="nav-brand">
+        <!-- Decorative circular logo placeholder — replace background
+             with an <img> tag once the real school logo is available -->
+        <span class="nav-brand__logo" aria-hidden="true"></span>
+        <span class="nav-brand__text">
+          Janta Bharat Aawasiya Vidyalaya
+          <small>Kosiyapatti &middot; Estd. 2015</small>
+        </span>
+      </a>
+
+      <!-- Main navigation menu (desktop horizontal / mobile slide-in) -->
+      <nav aria-label="Main navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="admission.html">Admission</a></li>
+          <li><a href="academics.html">Academics</a></li>
+          <li><a href="facilities.html">Facilities</a></li>
+          <li><a href="fee.html">Fee Structure</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="faculty.html">Faculty</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <!-- Accent "Apply Now" CTA, styled differently from other links -->
+          <li class="nav-cta">
+            <a href="admission.html" class="btn btn-primary">
+              Apply Now
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Hamburger toggle button — visible only on mobile via CSS -->
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <!-- Hamburger icon (SVG, no emoji) -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- =================================================================
+       ANNOUNCEMENTS / NOTICE TICKER BAND
+       Horizontally auto-scrolling strip of notices: admission dates,
+       holidays, events. Pauses on hover. Replace items with real,
+       current notices.
+       ================================================================= -->
+  <div class="notice-band" role="region" aria-label="Latest announcements">
+    <div class="notice-band__inner">
+      <span class="notice-band__label">
+        <!-- Megaphone icon -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 11v2a2 2 0 002 2h1l3 4V5L6 9H5a2 2 0 00-2 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+          <path d="M14 8a4 4 0 010 8M17 5a7 7 0 010 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+        Notices
+      </span>
+
+      <!-- The track is duplicated (two copies of items) so the CSS
+           translateX(-50%) loop animation appears seamless -->
+      <div class="notice-band__track">
+        <span class="notice-band__item">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          New Session Admissions Open — Enquire Today
+        </span>
+        <span class="notice-band__item">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 8v4l3 3M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Summer Vacation Notice — Details on the Notice Board
+        </span>
+        <span class="notice-band__item">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 15a4 4 0 100-8 4 4 0 000 8z M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Annual Sports Day Coming Soon
+        </span>
+        <!-- Duplicate set for seamless looping -->
+        <span class="notice-band__item" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          New Session Admissions Open — Enquire Today
+        </span>
+        <span class="notice-band__item" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 8v4l3 3M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Summer Vacation Notice — Details on the Notice Board
+        </span>
+        <span class="notice-band__item" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 15a4 4 0 100-8 4 4 0 000 8z M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Annual Sports Day Coming Soon
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =================================================================
+       MAIN CONTENT
+       ================================================================= -->
+  <main>
+
+    <!-- ===============================================================
+         HERO SECTION
+         Full-width background image with green gradient overlay,
+         animated headline lines, subtitle, and two CTA buttons.
+         Background uses a translateY parallax handled by main.js.
+         =============================================================== -->
+    <section class="hero" aria-label="Welcome">
+
+      <!-- Background media layer (image shown; swap <img> for <video> if a campus video is available) -->
+      <div class="hero__media">
+        <img
+          src="assets/images/hero-campus.jpg"
+          alt="Front view of Janta Bharat Aawasiya Vidyalaya campus building in Kosiyapatti"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <!--
+          To use a video instead, replace the <img> above with:
+          <video autoplay muted loop playsinline poster="assets/images/hero-campus.jpg">
+            <source src="assets/videos/campus-tour.mp4" type="video/mp4" />
+          </video>
+        -->
+      </div>
+
+      <!-- Dark green gradient overlay for text legibility -->
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <!-- Hero text content -->
+      <div class="container hero__content">
+        <span class="eyebrow hero__eyebrow">Kosiyapatti &middot; Estd. 2015 &middot; PIN 852214</span>
+
+        <!-- h1 split into two animated lines via .hero__title-line -->
+        <h1 class="hero__title">
+          <span class="hero__title-line">Janta Bharat</span>
+          <span class="hero__title-line">Aawasiya Vidyalaya</span>
+        </h1>
+
+        <p class="hero__subtitle">
+          A residential school where every child gets a safe home, dedicated
+          teachers, and the steady routine they need to learn, grow, and
+          thrive — from Nursery to Class 8.
+        </p>
+
+        <div class="hero__actions">
+          <!-- Primary CTA: Apply for Admission -->
+          <a href="admission.html" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M9 12l2 2 4-4M12 3l8 4-8 4-8-4 8-4zM4 11v5c0 1.7 3.6 3 8 3s8-1.3 8-3v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Apply for Admission
+          </a>
+          <!-- Secondary CTA: Contact Us -->
+          <a href="contact.html" class="btn btn-outline">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Contact Us
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll-down cue at base of hero -->
+      <div class="hero__scroll-cue" aria-hidden="true">
+        <span>Scroll</span>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </section>
+
+
+    <!-- ===============================================================
+         WELCOME / ABOUT SNAPSHOT
+         Two-column layout: campus photo + short intro text with a
+         "Read More" link through to about.html. Reveals on scroll.
+         =============================================================== -->
+    <section class="section" aria-labelledby="welcome-heading">
+      <div class="container">
+        <div class="about-snapshot">
+
+          <!-- Photo column -->
+          <div class="about-snapshot__media reveal">
+            <img
+              src="assets/images/about-classroom.jpg"
+              alt="Students attending class at Janta Bharat Aawasiya Vidyalaya, Kosiyapatti"
+              loading="lazy"
+              width="640"
+              height="480"
+            />
+          </div>
+
+          <!-- Text column -->
+          <div class="about-snapshot__body reveal reveal-delay-1">
+            <span class="eyebrow">Welcome to Our School</span>
+            <h2 id="welcome-heading">A second home for every student</h2>
+            <p>
+              Since 2015, Janta Bharat Aawasiya Vidyalaya has provided a warm,
+              disciplined residential environment in Kosiyapatti where
+              children from Nursery to Class 8 receive focused academic
+              attention alongside the comfort and care of a true home away
+              from home.
+            </p>
+            <p>
+              Our teachers, hostel staff, and management work together every
+              day to keep students safe, well-fed, and motivated to learn —
+              because education works best when a child feels secure.
+            </p>
+            <!-- "Read More" link to the About page -->
+            <a href="about.html" class="read-more-link">
+              Read more about us
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===============================================================
+         "WHY CHOOSE US" — FEATURE CARDS
+         6 cards, each with an SVG icon, heading and short description.
+         Cards lift/scale on hover; reveal on scroll with stagger.
+         =============================================================== -->
+    <section class="section section--alt" aria-labelledby="why-choose-heading">
+      <div class="container">
+
+        <div class="section-heading section-heading--center reveal">
+          <span class="eyebrow">Why Families Choose Us</span>
+          <h2 id="why-choose-heading">Everything your child needs to thrive</h2>
+          <p class="text-muted">
+            From a secure hostel to qualified teachers and a green, safe
+            campus — here is what sets our school apart.
+          </p>
+        </div>
+
+        <div class="grid grid--auto-fit">
+
+          <!-- Feature 1: Hostel Facility -->
+          <div class="feature-card reveal reveal-delay-1">
+            <div class="feature-card__icon">
+              <!-- Bed / hostel icon -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 18v-7a2 2 0 012-2h14a2 2 0 012 2v7M3 18h18M3 18v2M21 18v2M7 9V5h4v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Residential Hostel</h3>
+            <p>Clean, supervised dormitories with nutritious meals and a caring house-staff team around the clock.</p>
+          </div>
+
+          <!-- Feature 2: Qualified Teachers -->
+          <div class="feature-card reveal reveal-delay-2">
+            <div class="feature-card__icon">
+              <!-- Teacher / mortarboard icon -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Qualified Teachers</h3>
+            <p>Experienced, dedicated educators who know every child by name and nurture steady academic progress.</p>
+          </div>
+
+          <!-- Feature 3: Safe Campus -->
+          <div class="feature-card reveal reveal-delay-3">
+            <div class="feature-card__icon">
+              <!-- Shield icon -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Safe, Secure Campus</h3>
+            <p>A boundary-walled, supervised campus with CCTV coverage so children can play and learn freely.</p>
+          </div>
+
+          <!-- Feature 4: Modern Library -->
+          <div class="feature-card reveal reveal-delay-4">
+            <div class="feature-card__icon">
+              <!-- Book / library icon -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M4 19.5A2.5 2.5 0 016.5 17H20M4 4.5A2.5 2.5 0 016.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Modern Library</h3>
+            <p>A growing collection of story books, reference material, and learning resources for every age group.</p>
+          </div>
+
+          <!-- Feature 5: Transport -->
+          <div class="feature-card reveal reveal-delay-5">
+            <div class="feature-card__icon">
+              <!-- Bus icon -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M4 16V6a2 2 0 012-2h12a2 2 0 012 2v10M4 16a2 2 0 002 2h12a2 2 0 002-2M4 16h16M7 18v2M17 18v2M6 11h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>School Transport</h3>
+            <p>Safe pick-up and drop facility connecting nearby villages and towns to our campus.</p>
+          </div>
+
+          <!-- Feature 6: Sports -->
+          <div class="feature-card reveal reveal-delay-6">
+            <div class="feature-card__icon">
+              <!-- Trophy / sports icon -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 01-10 0V4zM7 6H4v2a3 3 0 003 3M17 6h3v2a3 3 0 01-3 3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Sports &amp; Activities</h3>
+            <p>Daily playtime, annual sports day, and cultural events that build confidence beyond the classroom.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===============================================================
+         CLASSES & FEES SNAPSHOT
+         3 cards summarising the fee groups, with a button through to
+         the full fee structure page.
+         =============================================================== -->
+    <section class="section" aria-labelledby="fees-heading">
+      <div class="container">
+
+        <div class="section-heading section-heading--center reveal">
+          <span class="eyebrow">Affordable Quality Education</span>
+          <h2 id="fees-heading">Classes &amp; Monthly Fees at a Glance</h2>
+          <p class="text-muted">
+            Simple, transparent fees across all class groups. Hostel and
+            transport charges are listed separately on the full fee page.
+          </p>
+        </div>
+
+        <div class="grid grid--auto-fit">
+
+          <!-- Fee group 1: UKG to Class 1 -->
+          <div class="fee-card reveal reveal-delay-1">
+            <p class="fee-card__group">U.K.G. to Class 1</p>
+            <p class="fee-card__amount">&#8377;700<span>/month</span></p>
+            <p class="fee-card__period">Tuition fee per student</p>
+          </div>
+
+          <!-- Fee group 2: Classes 1 to 5 -->
+          <div class="fee-card reveal reveal-delay-2">
+            <p class="fee-card__group">Classes 1 to 5</p>
+            <p class="fee-card__amount">&#8377;800<span>/month</span></p>
+            <p class="fee-card__period">Tuition fee per student</p>
+          </div>
+
+          <!-- Fee group 3: Classes 6 to 8 -->
+          <div class="fee-card reveal reveal-delay-3">
+            <p class="fee-card__group">Classes 6 to 8</p>
+            <p class="fee-card__amount">&#8377;900<span>/month</span></p>
+            <p class="fee-card__period">Tuition fee per student</p>
+          </div>
+
+        </div>
+
+        <!-- Centered button to the full fee structure page -->
+        <div class="reveal reveal-delay-4" style="text-align:center; margin-top: var(--space-lg);">
+          <a href="fee.html" class="btn btn-outline--dark">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 10h18M7 15h2M3 6h18v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            View Full Fee Structure
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===============================================================
+         STATS COUNTER BAND
+         Animated count-up numbers, triggered when scrolled into view
+         by initStatCounters() in main.js. Years of Excellence is
+         calculated as current year minus 2015.
+         =============================================================== -->
+    <section class="section stats-band" aria-labelledby="stats-heading">
+      <div class="container">
+
+        <h2 id="stats-heading" class="reveal" style="text-align:center; margin-bottom: var(--space-xl);">
+          Our Journey in Numbers
+        </h2>
+
+        <div class="stats-grid">
+
+          <!-- Years of Excellence: data-count-to is set via a small
+               inline script below so it always reflects (current year - 2015) -->
+          <div class="reveal reveal-delay-1">
+            <p class="stat-item__number" data-count-to="0" id="years-counter">0</p>
+            <p class="stat-item__label">Years of Excellence</p>
+          </div>
+
+          <div class="reveal reveal-delay-2">
+            <p class="stat-item__number" data-count-to="450" data-count-suffix="+">0</p>
+            <p class="stat-item__label">Happy Students</p>
+          </div>
+
+          <div class="reveal reveal-delay-3">
+            <p class="stat-item__number" data-count-to="28" data-count-suffix="+">0</p>
+            <p class="stat-item__label">Dedicated Teachers</p>
+          </div>
+
+          <div class="reveal reveal-delay-4">
+            <p class="stat-item__number" data-count-to="95" data-count-suffix="%">0</p>
+            <p class="stat-item__label">Annual Pass Percentage</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===============================================================
+         TESTIMONIALS / ACHIEVEMENTS CAROUSEL
+         Auto-rotating carousel with prev/next controls and dot nav,
+         driven by initCarousel() in main.js. Swipeable on touch.
+         =============================================================== -->
+    <section class="section section--alt" aria-labelledby="testimonials-heading">
+      <div class="container">
+
+        <div class="section-heading section-heading--center reveal">
+          <span class="eyebrow">What Parents Say</span>
+          <h2 id="testimonials-heading">Trusted by families across Kosiyapatti</h2>
+        </div>
+
+        <div class="carousel reveal">
+          <div class="carousel__track">
+            <div class="carousel__slides">
+
+              <!-- Slide 1 -->
+              <div class="carousel__slide">
+                <svg class="carousel__quote-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M7 7h4v6a4 4 0 01-4 4H6v-3h1a1 1 0 001-1V7zM15 7h4v6a4 4 0 01-4 4h-1v-3h1a1 1 0 001-1V7z" fill="currentColor"/>
+                </svg>
+                <p class="carousel__quote">
+                  "Since my son joined the hostel here, his routine and
+                  confidence have improved so much. The teachers genuinely
+                  care about every child."
+                </p>
+                <p class="carousel__author">Parent, Class 3 Student</p>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="carousel__slide">
+                <svg class="carousel__quote-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M7 7h4v6a4 4 0 01-4 4H6v-3h1a1 1 0 001-1V7zM15 7h4v6a4 4 0 01-4 4h-1v-3h1a1 1 0 001-1V7z" fill="currentColor"/>
+                </svg>
+                <p class="carousel__quote">
+                  "Clean hostel, good food, and regular updates from the
+                  school. It feels like our daughter has a second family
+                  here."
+                </p>
+                <p class="carousel__author">Parent, Class 6 Student</p>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="carousel__slide">
+                <svg class="carousel__quote-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M7 7h4v6a4 4 0 01-4 4H6v-3h1a1 1 0 001-1V7zM15 7h4v6a4 4 0 01-4 4h-1v-3h1a1 1 0 001-1V7z" fill="currentColor"/>
+                </svg>
+                <p class="carousel__quote">
+                  "The school's annual sports and cultural events bring out
+                  the best in every student. Highly recommended for
+                  disciplined learning."
+                </p>
+                <p class="carousel__author">Parent, Class 8 Student</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="carousel__controls">
+            <button class="carousel__btn carousel__prev" aria-label="Previous testimonial">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="carousel__dots" aria-hidden="true"><!-- dots injected by main.js --></div>
+            <button class="carousel__btn carousel__next" aria-label="Next testimonial">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===============================================================
+         PHOTO GALLERY PREVIEW
+         8 images in a responsive grid; clicking opens the shared
+         lightbox (markup at the end of body). Links to gallery.html
+         for the full collection.
+         =============================================================== -->
+    <section class="section" aria-labelledby="gallery-heading">
+      <div class="container">
+
+        <div class="section-heading section-heading--center reveal">
+          <span class="eyebrow">Campus Life</span>
+          <h2 id="gallery-heading">A Glimpse of Our School</h2>
+        </div>
+
+        <div class="gallery-grid reveal">
+          <!-- Each tile is keyboard-accessible (tabindex + role) and
+               opens the lightbox via data-lightbox-src / data-lightbox-caption -->
+          <div class="gallery-grid__item" tabindex="0" role="button"
+               data-lightbox-src="assets/images/gallery-01.jpg"
+               data-lightbox-caption="Main school building, Janta Bharat Aawasiya Vidyalaya">
+            <img src="assets/images/gallery-01.jpg" alt="Main school building" loading="lazy" />
+            <span class="gallery-grid__caption">Main Building</span>
+          </div>
+          <div class="gallery-grid__item" tabindex="0" role="button"
+               data-lightbox-src="assets/images/gallery-02.jpg"
+               data-lightbox-caption="Students in a classroom">
+            <img src="assets/images/gallery-02.jpg" alt="Students in a classroom" loading="lazy" />
+            <span class="gallery-grid__caption">Classroom</span>
+          </div>
+          <div class="gallery-grid__item" tabindex="0" role="button"
+               data-lightbox-src="assets/images/gallery-03.jpg"
+               data-lightbox-caption="Hostel dormitory">
+            <img src="assets/images/gallery-03.jpg" alt="Hostel dormitory" loading="lazy" />
+            <span class="gallery-grid__caption">Hostel</span>
+          </div>
+          <div class="gallery-grid__item" tabindex="0" role="button"
+               data-lightbox-src="assets/images/gallery-04.jpg"
+               data-lightbox-caption="Library reading area">
+            <img src="assets/images/gallery-04.jpg" alt="Library reading area" loading="lazy" />
+            <span class="gallery-grid__caption">Library</span>
+          </div>
+          <div class="gallery-grid__item" tabindex="0" role="button"
+               data-lightbox-src="assets/images/gallery-05.jpg"
+               data-lightbox-caption="Playground activities">
+            <img src="assets/images/gallery-05.jpg" alt="Playground activities" loading="lazy" />
+            <span class="gallery-grid__caption">Playground</span>
+          </div>
+          <div class="gallery-grid__item" tabindex="0" role="button"
+               data-lightbox-src="assets/images/gallery-06.jpg"
+               data-lightbox-caption="Annual day cultural event">
+            <img src="assets/images/gallery-06.jpg" alt="Annual day cultural event" loading="lazy" />
+            <span class="gallery-grid__caption">Annual Day</span>
+          </div>
+          <div class="gallery-grid__item" tabindex="0" role="button"
+               data-lightbox-src="assets/images/gallery-07.jpg"
+               data-lightbox-caption="Dining hall">
+            <img src="assets/images/gallery-07.jpg" alt="Dining hall" loading="lazy" />
+            <span class="gallery-grid__caption">Dining Hall</span>
+          </div>
+          <div class="gallery-grid__item" tabindex="0" role="button"
+               data-lightbox-src="assets/images/gallery-08.jpg"
+               data-lightbox-caption="Sports day medal ceremony">
+            <img src="assets/images/gallery-08.jpg" alt="Sports day medal ceremony" loading="lazy" />
+            <span class="gallery-grid__caption">Sports Day</span>
+          </div>
+        </div>
+
+        <!-- Centered "View All Photos" link to gallery.html -->
+        <div class="reveal" style="text-align:center; margin-top: var(--space-lg);">
+          <a href="gallery.html" class="btn btn-outline--dark">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 16l4-5 3 3 5-7 4 9M4 4h16v16H4z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            View All Photos
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===============================================================
+         FINAL CALL-TO-ACTION BAND
+         A closing prompt encouraging visitors to apply or contact the
+         school, on the deep green brand background.
+         =============================================================== -->
+    <section class="section section--green" aria-labelledby="cta-heading">
+      <div class="container reveal" style="text-align:center;">
+        <span class="eyebrow" style="color: var(--color-gold-500);">Admissions Open Now</span>
+        <h2 id="cta-heading">Give your child a safe, supportive place to learn and grow</h2>
+        <p style="color: rgba(251,246,236,0.85); max-width: 560px; margin: 0 auto var(--space-lg);">
+          Seats for the new session are filling fast. Reach out today to
+          learn more about admission, fees, and hostel life.
+        </p>
+        <div class="hero__actions" style="justify-content:center;">
+          <a href="admission.html" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M9 12l2 2 4-4M12 3l8 4-8 4-8-4 8-4zM4 11v5c0 1.7 3.6 3 8 3s8-1.3 8-3v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Apply for Admission
+          </a>
+          <a href="contact.html" class="btn btn-outline">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =================================================================
+       SHARED SITE FOOTER
+       Copy this exact <footer> block, unchanged, onto every page.
+       4 columns: brand/about, quick links, contact info, map.
+       Bottom bar: copyright (year auto-updated by main.js) + SparkEdge
+       credit which opens the services popup modal.
+       ================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <!-- Column 1: Brand + tagline + social links -->
+        <div class="footer-col">
+          <div class="footer-brand">
+            <span class="footer-brand__logo" aria-hidden="true"></span>
+            <span class="footer-brand__name">Janta Bharat Aawasiya Vidyalaya</span>
+          </div>
+          <p class="footer-tagline">
+            A residential school in Kosiyapatti, Pin 852214, providing safe
+            hostel living and quality education from Nursery to Class 8
+            since 2015.
+          </p>
+          <div class="footer-social">
+            <!-- Replace # with real social profile URLs -->
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 8h2V5h-2a4 4 0 00-4 4v2H9v3h2v6h3v-6h2.2l.8-3H14v-1.5A1.5 1.5 0 0115.5 8z" fill="currentColor"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M10 9l5 3-5 3V9z" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick links (mirrors main nav) -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="admission.html">Admission</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="facilities.html">Facilities</a></li>
+            <li><a href="fee.html">Fee Structure</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="faculty.html">Faculty</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact info with NAP details for local SEO -->
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1118 0z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.6"/></svg>
+              <span>Janta Bharat Aawasiya Vidyalaya, Kosiyapatti, Pin Code &ndash; 852214, India</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.6"/></svg>
+              <a href="tel:+918877225674">+91 88772 25674</a>
+            </li>
+            <li>
+              <!-- WhatsApp icon -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.6 6.3A8 8 0 005.7 17l-1.2 3.3 3.4-1.1A8 8 0 1017.6 6.3z" stroke="currentColor" stroke-width="1.6"/><path d="M9 9c0 3 2 5 5 5l1-2-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2-1.5.5z" fill="currentColor"/></svg>
+              <a href="https://wa.me/919939668350" target="_blank" rel="noopener">+91 99396 68350 (WhatsApp)</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.6"/><path d="M4 6l8 7 8-7" stroke="currentColor" stroke-width="1.6"/></svg>
+              <a href="mailto:info@jantabharatschool.in">info@jantabharatschool.in</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Embedded Google Map -->
+        <div class="footer-col">
+          <h4>Find Us</h4>
+          <div class="footer-map">
+            <!-- Replace with an embed URL generated from the school's exact Google Maps pin -->
+            <iframe
+              src="https://www.google.com/maps?q=Kosiyapatti,852214&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Map showing location of Janta Bharat Aawasiya Vidyalaya in Kosiyapatti"
+              aria-label="Google Map of school location"
+            ></iframe>
+          </div>
+          <a href="https://www.google.com/maps?q=Kosiyapatti,852214" target="_blank" rel="noopener" class="read-more-link" style="color: var(--color-gold-500);">
+            View on Google Maps
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar: copyright + SparkEdge credit -->
+      <div class="footer-bottom">
+        <p>&copy; <span data-current-year>2026</span> Janta Bharat Aawasiya Vidyalaya. All Rights Reserved.</p>
+        <p>
+          Website by
+          <!-- Clicking this opens the SparkEdge services popup modal -->
+          <button type="button" class="sparkedge-credit" data-sparkedge-open>SparkEdge</button>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =================================================================
+       SPARKEDGE SERVICES POPUP MODAL
+       Hidden by default; opened via the "SparkEdge" footer credit
+       button. Pitches web services to visitors who notice the credit,
+       with a link to the SparkEdge agency website. Copy this block
+       onto every page alongside the footer.
+       ================================================================= -->
+  <div class="sparkedge-modal" data-sparkedge-modal role="dialog" aria-modal="true" aria-labelledby="sparkedge-title">
+    <div class="sparkedge-modal__card">
+
+      <!-- Close button -->
+      <button type="button" class="sparkedge-modal__close" data-sparkedge-close aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <span class="eyebrow sparkedge-modal__eyebrow">Built by SparkEdge</span>
+      <h3 id="sparkedge-title" class="sparkedge-modal__title">Need a website like this for your business?</h3>
+      <p class="sparkedge-modal__desc">
+        SparkEdge designs and builds fast, modern, SEO-ready websites for
+        schools, shops, and local businesses — like the one you're looking
+        at right now.
+      </p>
+
+      <ul class="sparkedge-modal__services">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Custom website design &amp; development
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          SEO setup &amp; Google Search visibility
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Hosting setup, custom domains &amp; maintenance
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          WhatsApp, forms &amp; Google Maps integration
+        </li>
+      </ul>
+
+      <div class="sparkedge-modal__actions">
+        <a href="https://sparkedge555.github.io/sparkedgeagency/" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14 3h7v7M21 3L10 14M21 14v7H3V3h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Visit SparkEdge Website
+        </a>
+        <button type="button" class="btn btn-outline--dark" data-sparkedge-close>Maybe Later</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- =================================================================
+       GALLERY LIGHTBOX (shared markup)
+       Hidden by default; opened via clicks on .gallery-grid__item
+       elements with [data-lightbox-src]. Controlled by initLightbox()
+       in main.js. Copy onto any page that uses gallery items.
+       ================================================================= -->
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox__close" aria-label="Close image viewer">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button class="lightbox__prev" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="lightbox__image-wrap">
+      <img src="" alt="" />
+    </div>
+    <button class="lightbox__next" aria-label="Next image">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <p class="lightbox__caption"></p>
+  </div>
+
+
+  <!-- =================================================================
+       TOAST NOTIFICATION (shared markup)
+       Hidden by default; shown briefly by initCopyToClipboard() etc.
+       Copy onto pages that use click-to-copy or form submissions.
+       ================================================================= -->
+  <div class="toast" role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span data-toast-text>Copied to clipboard</span>
+  </div>
+
+
+  <!-- =================================================================
+       FLOATING WHATSAPP BUTTON
+       Fixed bottom-right on every page. Pre-filled message opens a
+       WhatsApp chat with the school's WhatsApp number.
+       ================================================================= -->
+  <a
+    href="https://wa.me/919939668350?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Janta%20Bharat%20Aawasiya%20Vidyalaya."
+    class="whatsapp-fab"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chat with us on WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M17.6 6.3A8 8 0 005.7 17l-1.2 3.3 3.4-1.1A8 8 0 1017.6 6.3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M9 9c0 3 2 5 5 5l1-2-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2-1.5.5z" fill="currentColor"/>
+    </svg>
+  </a>
+
+
+  <!-- =================================================================
+       GLOBAL SCRIPT
+       Single shared JS file used by every page of the site.
+       ================================================================= -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- =================================================================
+       PAGE-SPECIFIC INLINE SCRIPT
+       Calculates "Years of Excellence" as (current year - 2015) and
+       sets it as the count-up target before main.js's
+       initStatCounters() runs. Kept inline since it is tiny and
+       unique to this page.
+       ================================================================= -->
+  <script>
+    (function () {
+      var yearsEl = document.getElementById('years-counter');
+      if (yearsEl) {
+        var years = new Date().getFullYear() - 2015;
+        yearsEl.setAttribute('data-count-to', years);
+      }
+    })();
+  </script>
+
+</body>
+</html>
+Done
