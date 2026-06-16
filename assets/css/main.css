@@ -1359,6 +1359,53 @@ nav { display: flex; align-items: center; }
 .sparkedge-modal__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
 /* ===================================================================
+   18b. BREADCRUMB BASE STYLES
+   =================================================================== */
+.breadcrumb {
+  background: var(--color-cream-200);
+  border-bottom: 1px solid var(--color-line-200);
+  padding: 0.6rem 0;
+}
+
+.breadcrumb__list {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-utility);
+  font-size: 0.82rem;
+  color: var(--color-ink-600);
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb__list a {
+  color: var(--color-green-700);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--duration-fast);
+  white-space: nowrap;
+}
+
+.breadcrumb__list a:hover {
+  color: var(--color-gold-600);
+}
+
+.breadcrumb__sep {
+  color: var(--color-ink-400);
+  font-size: 0.82rem;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.breadcrumb__current {
+  color: var(--color-ink-900);
+  font-weight: 700;
+  word-break: break-word;
+}
+
+/* ===================================================================
    19. FOOTER (matches reference Medona School style)
    =================================================================== */
 .site-footer {
@@ -1596,20 +1643,6 @@ nav { display: flex; align-items: center; }
     flex-shrink: 0;
     margin-left: auto;
   }
-  .breadcrumb {
-    padding: 0.4rem 0;
-  }
-
-  .breadcrumb__list {
-    font-size: 0.75rem;
-    gap: 0.3rem;
-    flex-wrap: wrap;
-    line-height: 1.4;
-  }
-
-  .breadcrumb__sep {
-    font-size: 0.75rem;
-  }
 
   .page-banner {
     padding: calc(var(--nav-height) + var(--space-lg)) 0 var(--space-lg);
@@ -1837,15 +1870,45 @@ nav { display: flex; align-items: center; }
   .btn-apply { width: 100%; justify-content: center; }
 
   /* ── BREADCRUMB ── */
-  .breadcrumb { padding: 0.4rem 0; }
-  .breadcrumb__list {
-    font-size: 0.75rem;
-    gap: 0.25rem;
-    flex-wrap: wrap;
-    line-height: 1.4;
+  .breadcrumb {
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--color-line-200);
   }
-  .breadcrumb__sep { font-size: 0.72rem; }
-  .breadcrumb__current { font-size: 0.75rem; }
+
+  .breadcrumb .container {
+    padding: 0 0.75rem;
+  }
+
+  .breadcrumb__list {
+    font-size: 0.72rem;
+    gap: 0.2rem;
+    flex-wrap: wrap;
+    line-height: 1.5;
+    align-items: center;
+  }
+
+  .breadcrumb__list a {
+    font-size: 0.72rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .breadcrumb__sep {
+    font-size: 0.68rem;
+    flex-shrink: 0;
+    opacity: 0.6;
+    margin: 0 0.1rem;
+  }
+
+  .breadcrumb__current {
+    font-size: 0.72rem;
+    font-weight: 700;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 55vw;
+  }
 
   /* ── PAGE BANNER ── */
   .page-banner {
@@ -1993,6 +2056,28 @@ nav { display: flex; align-items: center; }
   html { font-size: 14px; }
 
   .hero__title { font-size: clamp(1.5rem, 8vw, 2rem); }
+
+  .breadcrumb {
+    padding: 0.3rem 0;
+  }
+
+  .breadcrumb .container {
+    padding: 0 0.6rem;
+  }
+
+  .breadcrumb__list {
+    font-size: 0.68rem;
+    gap: 0.15rem;
+  }
+
+  .breadcrumb__list a {
+    font-size: 0.68rem;
+  }
+
+  .breadcrumb__current {
+    font-size: 0.68rem;
+    max-width: 48vw;
+  }
 
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .grid--auto-fit { grid-template-columns: 1fr; }
