@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initAccordions();
   initCopyToClipboard();
   initHeroParallax();
+  initScrollTopBtn();
 });
 
 
@@ -50,15 +51,21 @@ function initMobileNav() {
 
   if (!toggle || !menu) return;
 
-  function closeMenu() {
+  var overlay = document.querySelector('.nav-overlay');
+
+function closeMenu() {
     menu.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
-  }
+    if (overlay) { overlay.classList.remove('is-active'); overlay.setAttribute('aria-hidden', 'true'); }
+    document.body.style.overflow = '';
+}
 
-  function openMenu() {
+function openMenu() {
     menu.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
-  }
+    if (overlay) { overlay.classList.add('is-active'); overlay.setAttribute('aria-hidden', 'false'); }
+    document.body.style.overflow = 'hidden';
+}
 
   toggle.addEventListener('click', function (e) {
     e.stopPropagation();
@@ -74,6 +81,10 @@ function initMobileNav() {
     link.addEventListener('click', closeMenu);
   });
 
+   if (overlay) {
+    overlay.addEventListener('click', closeMenu);
+}
+  
   // Close menu when clicking outside of it
   document.addEventListener('click', function (e) {
     if (menu.classList.contains('is-open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
@@ -163,13 +174,13 @@ function initSparkEdgeModal() {
   var modal = document.querySelector('[data-sparkedge-modal]');
   if (!openBtn || !modal) return;
 
-  var closeBtn = modal.querySelector('[data-sparkedge-close]');
+var closeBtns = modal.querySelectorAll('[data-sparkedge-close]');
 
   function openModal() {
     modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
-    if (closeBtn) closeBtn.focus();
-  }
+    if (closeBtns[0]) closeBtns[0].focus();
+}
 
   function closeModal() {
     modal.classList.remove('is-open');
@@ -179,9 +190,9 @@ function initSparkEdgeModal() {
 
   openBtn.addEventListener('click', openModal);
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeModal);
-  }
+ closeBtns.forEach(function(btn) {
+    btn.addEventListener('click', closeModal);
+});
 
   // Close when clicking the dark overlay (outside the card)
   modal.addEventListener('click', function (e) {
@@ -584,4 +595,18 @@ function initHeroParallax() {
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+// 
+function initScrollTopBtn() {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+
+    window.addEventListener('scroll', function() {
+        btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+    }, { passive: true });
+
+    btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 }
