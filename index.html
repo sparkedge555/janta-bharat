@@ -59,6 +59,31 @@
   <!-- ===== GLOBAL STYLESHEET ===== -->
   <link rel="stylesheet" href="assets/css/main.css" />
 
+  <!--  -->
+  <style>
+/* ── HOME PAGE MOBILE FIXES ── */
+@media (max-width: 767px) {
+  .hero__actions { width: 100%; }
+  .about-snapshot { gap: var(--space-lg); }
+  .hostel-grid { grid-template-columns: 1fr; }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 120px;
+  }
+  .gallery-grid__item:nth-child(1),
+  .gallery-grid__item:nth-child(6) { grid-column: span 2; grid-row: span 1; }
+  .admission-cta-grid { grid-template-columns: 1fr; }
+  .classes-card { margin-top: var(--space-md); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 110px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .feature-card { padding: var(--space-md) var(--space-sm); }
+}
+</style>
+
   <!-- ===== JSON-LD STRUCTURED DATA ===== -->
   <script type="application/ld+json">
   {

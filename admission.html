@@ -463,6 +463,31 @@
       .whyjoin-grid { grid-template-columns: 1fr; }
       .eligibility-table thead th, .eligibility-table td { padding: .7rem .8rem; }
     }
+
+    /*  */
+
+    /* ── ADMISSION PAGE MOBILE FIXES ── */
+@media (max-width: 767px) {
+  .steps-flow { grid-template-columns: 1fr 1fr; }
+  .steps-flow::before { display: none; }
+  .docs-grid { grid-template-columns: 1fr; }
+  .form-layout { grid-template-columns: 1fr; }
+  .whyjoin-grid { grid-template-columns: 1fr 1fr; }
+  .gform-body iframe { min-height: 1200px; width: 100% !important; }
+  .gform-wrapper { border-radius: var(--radius-lg); }
+  .page-banner { padding: calc(var(--nav-height) + var(--space-lg)) 0 var(--space-lg); }
+  .wa-direct-btn { padding: 0.85rem var(--space-md); }
+  .fcc { flex-wrap: nowrap; }
+  .eligibility-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .eligibility-table { min-width: 440px; }
+}
+
+@media (max-width: 480px) {
+  .steps-flow { grid-template-columns: 1fr; }
+  .whyjoin-grid { grid-template-columns: 1fr; }
+  .step-card__num { width: 60px; height: 60px; font-size: 1.2rem; }
+}
+
   </style>
 
   <!-- ===== JSON-LD FAQ SCHEMA ===== -->

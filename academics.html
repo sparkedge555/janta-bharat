@@ -448,6 +448,29 @@
     @media (max-width: 480px) {
       .value-grid { grid-template-columns: 1fr; }
     }
+
+    /*  */
+    /* ── ACADEMICS PAGE MOBILE FIXES ── */
+@media (max-width: 767px) {
+  .class-cards-grid { grid-template-columns: 1fr; }
+  .method-grid { grid-template-columns: 1fr; }
+  .value-grid { grid-template-columns: 1fr 1fr; }
+  .routine-timeline { grid-template-columns: 1fr; }
+  .calendar-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .calendar-table { min-width: 500px; }
+  .page-banner { padding: calc(var(--nav-height) + var(--space-lg)) 0 var(--space-lg); }
+  .activity-grid { grid-template-columns: 1fr; }
+  .subjects-strip__track { animation-duration: 20s; }
+  .class-card__img { height: 160px; }
+  .routine-slot { flex-wrap: nowrap; }
+  .routine-slot__time { min-width: 70px; font-size: 0.82rem; }
+}
+
+@media (max-width: 480px) {
+  .value-grid { grid-template-columns: 1fr; }
+  .class-cards-grid { grid-template-columns: 1fr; }
+  .activity-card__img { height: 160px; }
+}
   </style>
 
   <!-- ===== JSON-LD STRUCTURED DATA ===== -->

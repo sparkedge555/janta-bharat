@@ -393,6 +393,32 @@
       .facilities-gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 120px; }
       .facilities-gallery-grid__item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
     }
+
+    /*  */
+
+    /* ── FACILITIES PAGE MOBILE FIXES ── */
+@media (max-width: 767px) {
+  .facility-card { height: 260px; }
+  .hostel-photo-grid { grid-template-columns: 1fr 1fr; }
+  .transport-grid { grid-template-columns: 1fr; }
+  .transport-safety-grid { grid-template-columns: 1fr 1fr; }
+  .facilities-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 130px;
+  }
+  .facilities-gallery-grid__item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+  .page-banner { padding: calc(var(--nav-height) + var(--space-lg)) 0 var(--space-lg); }
+  .hostel-accordion-wrap { padding: var(--space-sm) var(--space-md); }
+  .infra-gallery { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .facility-card { height: 240px; }
+  .hostel-photo-grid { grid-template-columns: 1fr; }
+  .transport-safety-grid { grid-template-columns: 1fr; }
+  .facilities-gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 110px; }
+  .facility-card__face--back p { font-size: 0.78rem; }
+}
   </style>
 
   <!-- ===== JSON-LD STRUCTURED DATA ===== -->
