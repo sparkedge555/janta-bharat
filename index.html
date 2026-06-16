@@ -82,6 +82,25 @@
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .feature-card { padding: var(--space-md) var(--space-sm); }
 }
+
+/*  */
+@media (max-width: 767px) {
+  .page-banner {
+    padding: calc(var(--nav-height) + 1rem) 0 1rem;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .page-banner__inner {
+    padding: 0 1rem;
+  }
+  
+  .page-banner h1 {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+    word-break: break-word;
+  }
+}
 </style>
 
   <!-- ===== JSON-LD STRUCTURED DATA ===== -->

@@ -419,6 +419,24 @@
   .facilities-gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 110px; }
   .facility-card__face--back p { font-size: 0.78rem; }
 }
+/*  */
+@media (max-width: 767px) {
+  .page-banner {
+    padding: calc(var(--nav-height) + 1rem) 0 1rem;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .page-banner__inner {
+    padding: 0 1rem;
+  }
+  
+  .page-banner h1 {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+    word-break: break-word;
+  }
+}
   </style>
 
   <!-- ===== JSON-LD STRUCTURED DATA ===== -->
