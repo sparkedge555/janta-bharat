@@ -490,21 +490,220 @@
 
 /*  */
 
+/* ── ADMISSION PAGE MOBILE FIXES ── */
 @media (max-width: 767px) {
+  /* Page banner */
   .page-banner {
-    padding: calc(var(--nav-height) + 1rem) 0 1rem;
-    text-align: center;
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .page-banner__inner {
-    padding: 0 1rem;
+    padding: calc(var(--nav-height) + 1rem) 0 1rem !important;
   }
   
   .page-banner h1 {
-    font-size: clamp(1.4rem, 6vw, 2rem);
-    word-break: break-word;
+    font-size: clamp(1.3rem, 6vw, 1.9rem) !important;
+    word-break: break-word !important;
+  }
+  
+  .page-banner p {
+    font-size: 0.82rem !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  .banner-pills {
+    gap: 0.25rem !important;
+  }
+  
+  .banner-pill {
+    font-size: 0.62rem !important;
+    padding: 0.2em 0.5em !important;
+  }
+  
+  .admission-ribbon {
+    font-size: 0.65rem !important;
+    padding: 0.25em 0.75em !important;
+  }
+  
+  /* Steps */
+  .steps-flow {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-sm) !important;
+  }
+  
+  .steps-flow::before {
+    display: none !important;
+  }
+  
+  .step-card__num {
+    width: 56px !important;
+    height: 56px !important;
+    font-size: 1.2rem !important;
+  }
+  
+  .step-card h3 {
+    font-size: 0.85rem !important;
+  }
+  
+  .step-card p {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Eligibility table */
+  .eligibility-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: var(--radius-md) !important;
+  }
+  
+  .eligibility-table {
+    min-width: 400px !important;
+    font-size: 0.78rem !important;
+  }
+  
+  .eligibility-table td,
+  .eligibility-table th {
+    padding: 0.5rem 0.6rem !important;
+  }
+  
+  /* Documents */
+  .docs-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-sm) !important;
+  }
+  
+  .doc-card {
+    padding: var(--space-sm) !important;
+  }
+  
+  .doc-card__body strong {
+    font-size: 0.85rem !important;
+  }
+  
+  .doc-card__body p {
+    font-size: 0.75rem !important;
+  }
+  
+  .docs-note {
+    font-size: 0.78rem !important;
+    padding: var(--space-xs) var(--space-sm) !important;
+  }
+  
+  /* Form layout */
+  .form-layout {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-md) !important;
+  }
+  
+  .form-info h2 {
+    font-size: clamp(1.2rem, 5vw, 1.7rem) !important;
+  }
+  
+  .form-info p {
+    font-size: 0.82rem !important;
+  }
+  
+  .form-contact-cards {
+    gap: var(--space-xs) !important;
+  }
+  
+  .fcc {
+    padding: 0.6rem var(--space-sm) !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .fcc__icon {
+    width: 32px !important;
+    height: 32px !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .fcc strong {
+    font-size: 0.82rem !important;
+  }
+  
+  .wa-direct-btn {
+    padding: 0.75rem var(--space-sm) !important;
+    font-size: 0.85rem !important;
+  }
+  
+  .gform-wrapper {
+    border-radius: var(--radius-md) !important;
+    overflow: hidden !important;
+  }
+  
+  .gform-body iframe {
+    min-height: 1150px !important;
+    width: 100% !important;
+  }
+  
+  .gform-header {
+    padding: var(--space-xs) var(--space-sm) !important;
+  }
+  
+  .gform-header__text strong {
+    font-size: 0.88rem !important;
+  }
+  
+  /* Why join */
+  .whyjoin-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-sm) !important;
+  }
+  
+  .wj-card {
+    padding: var(--space-sm) !important;
+  }
+  
+  .wj-card__emoji {
+    font-size: 1.8rem !important;
+  }
+  
+  .wj-card h3 {
+    font-size: 0.88rem !important;
+  }
+  
+  .wj-card p {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Final CTA */
+  .admission-final-cta h2 {
+    font-size: clamp(1.2rem, 5vw, 1.7rem) !important;
+  }
+  
+  .admission-final-cta p {
+    font-size: 0.82rem !important;
+    padding: 0 var(--space-xs) !important;
+  }
+  
+  .hero__actions {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .hero__actions .btn {
+    width: 100% !important;
+    max-width: 320px !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .steps-flow {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .whyjoin-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .step-card__num {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 1rem !important;
+  }
+  
+  .eligibility-table {
+    min-width: 360px !important;
+    font-size: 0.72rem !important;
   }
 }
   </style>

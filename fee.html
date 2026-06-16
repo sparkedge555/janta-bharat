@@ -330,21 +330,140 @@
 }
 
 /*  */
+/* ── FEE PAGE MOBILE FIXES ── */
 @media (max-width: 767px) {
+  /* Page banner */
   .page-banner {
-    padding: calc(var(--nav-height) + 1rem) 0 1rem;
-    text-align: center;
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .page-banner__inner {
-    padding: 0 1rem;
+    padding: calc(var(--nav-height) + 1rem) 0 1rem !important;
   }
   
   .page-banner h1 {
-    font-size: clamp(1.4rem, 6vw, 2rem);
-    word-break: break-word;
+    font-size: clamp(1.4rem, 6vw, 2rem) !important;
+  }
+  
+  .banner-pills {
+    gap: 0.25rem !important;
+  }
+  
+  .banner-pill {
+    font-size: 0.62rem !important;
+    padding: 0.18em 0.5em !important;
+  }
+  
+  /* Session note */
+  .fee-session-note {
+    flex-direction: column !important;
+    text-align: center !important;
+    font-size: 0.78rem !important;
+    padding: 0.5rem var(--space-sm) !important;
+    margin-bottom: var(--space-md) !important;
+  }
+  
+  /* Fee table */
+  .fee-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: var(--radius-md) !important;
+  }
+  
+  .fee-table {
+    min-width: 440px !important;
+    font-size: 0.78rem !important;
+  }
+  
+  .fee-table td,
+  .fee-table th {
+    padding: 0.6rem 0.75rem !important;
+  }
+  
+  .fee-table-note {
+    font-size: 0.75rem !important;
+    padding: var(--space-xs) var(--space-sm) !important;
+  }
+  
+  .fee-pdf-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: var(--space-xs) !important;
+  }
+  
+  .fee-pdf-row .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  
+  /* Accordion */
+  .addcharges-wrap {
+    padding: var(--space-sm) !important;
+  }
+  
+  .accordion-trigger {
+    font-size: 0.85rem !important;
+  }
+  
+  .charge-mini-table td {
+    font-size: 0.75rem !important;
+    padding: 0.4rem 0.2rem !important;
+  }
+  
+  /* Policy */
+  .policy-wrap {
+    padding: var(--space-sm) !important;
+  }
+  
+  /* Bank */
+  .bank-card {
+    padding: var(--space-sm) !important;
+    border-radius: var(--radius-md) !important;
+  }
+  
+  .bank-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.25rem !important;
+    padding: 0.6rem 0 !important;
+  }
+  
+  .bank-row__label {
+    font-size: 0.68rem !important;
+  }
+  
+  .bank-row__value {
+    font-size: 0.8rem !important;
+    word-break: break-all !important;
+    padding: 0.2rem 0.4rem !important;
+  }
+  
+  /* CTA */
+  .fee-cta h2 {
+    font-size: clamp(1.2rem, 5vw, 1.7rem) !important;
+  }
+  
+  .fee-cta p {
+    font-size: 0.82rem !important;
+  }
+  
+  .hero__actions {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .hero__actions .btn {
+    width: 100% !important;
+    max-width: 320px !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .fee-table {
+    min-width: 380px !important;
+    font-size: 0.72rem !important;
+  }
+  
+  .charge-mini-table td {
+    font-size: 0.7rem !important;
   }
 }
   </style>

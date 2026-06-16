@@ -458,21 +458,212 @@
 }
 /*  */
 
+/* ── CONTACT PAGE MOBILE FIXES ── */
 @media (max-width: 767px) {
+  /* Page banner */
   .page-banner {
-    padding: calc(var(--nav-height) + 1rem) 0 1rem;
-    text-align: center;
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .page-banner__inner {
-    padding: 0 1rem;
+    padding: calc(var(--nav-height) + 1rem) 0 1rem !important;
   }
   
   .page-banner h1 {
-    font-size: clamp(1.4rem, 6vw, 2rem);
-    word-break: break-word;
+    font-size: clamp(1.4rem, 6vw, 2rem) !important;
+  }
+  
+  .banner-pills {
+    gap: 0.25rem !important;
+  }
+  
+  .banner-pill {
+    font-size: 0.62rem !important;
+    padding: 0.18em 0.5em !important;
+  }
+  
+  /* Contact layout */
+  .contact-layout {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-md) !important;
+  }
+  
+  .contact-info-card {
+    position: static !important;
+    padding: var(--space-md) !important;
+    border-radius: var(--radius-lg) !important;
+  }
+  
+  .contact-info-card h3 {
+    font-size: 1rem !important;
+    margin-bottom: var(--space-sm) !important;
+    padding-bottom: 0.5rem !important;
+  }
+  
+  .contact-info-list {
+    gap: var(--space-sm) !important;
+  }
+  
+  .ci-item {
+    gap: var(--space-xs) !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  .ci-icon {
+    width: 36px !important;
+    height: 36px !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .ci-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  
+  .ci-body strong {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.08em !important;
+  }
+  
+  .ci-body span,
+  .ci-body a {
+    font-size: 0.82rem !important;
+  }
+  
+  .ci-hours-row {
+    flex-direction: column !important;
+    gap: 0.2rem !important;
+  }
+  
+  .wa-card-btn {
+    padding: 0.7rem var(--space-sm) !important;
+    font-size: 0.82rem !important;
+  }
+  
+  /* Map */
+  .map-wrapper {
+    border-radius: var(--radius-md) !important;
+    overflow: hidden !important;
+  }
+  
+  .map-body iframe {
+    height: 220px !important;
+  }
+  
+  .map-header {
+    padding: var(--space-xs) var(--space-sm) !important;
+  }
+  
+  .map-header__text strong {
+    font-size: 0.85rem !important;
+  }
+  
+  .map-header__text span {
+    font-size: 0.7rem !important;
+  }
+  
+  .map-footer {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.4rem !important;
+    padding: 0.5rem var(--space-sm) !important;
+  }
+  
+  .map-footer span {
+    font-size: 0.72rem !important;
+  }
+  
+  /* Form */
+  .form-card {
+    border-radius: var(--radius-md) !important;
+    overflow: hidden !important;
+  }
+  
+  .form-card-header {
+    padding: var(--space-xs) var(--space-sm) !important;
+  }
+  
+  .form-card-header__text strong {
+    font-size: 0.88rem !important;
+  }
+  
+  .form-card-body iframe {
+    min-height: 1150px !important;
+    width: 100% !important;
+  }
+  
+  /* Directions */
+  .directions-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-xs) !important;
+  }
+  
+  .dir-card {
+    padding: var(--space-sm) !important;
+  }
+  
+  .dir-card__icon {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 1.2rem !important;
+  }
+  
+  .dir-card__body strong {
+    font-size: 0.85rem !important;
+  }
+  
+  .dir-card__body span {
+    font-size: 0.78rem !important;
+  }
+  
+  /* FAQ */
+  .faq-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-xs) !important;
+  }
+  
+  .faq-item {
+    padding: var(--space-sm) !important;
+  }
+  
+  .faq-item h4 {
+    font-size: 0.88rem !important;
+  }
+  
+  .faq-item p {
+    font-size: 0.78rem !important;
+  }
+  
+  /* CTA */
+  .contact-cta h2 {
+    font-size: clamp(1.2rem, 5vw, 1.7rem) !important;
+  }
+  
+  .contact-cta p {
+    font-size: 0.82rem !important;
+  }
+  
+  .hero__actions {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .hero__actions .btn {
+    width: 100% !important;
+    max-width: 320px !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info-card {
+    padding: var(--space-sm) !important;
+  }
+  
+  .ci-body span,
+  .ci-body a {
+    font-size: 0.78rem !important;
+  }
+  
+  .map-body iframe {
+    height: 200px !important;
   }
 }
   </style>

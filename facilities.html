@@ -420,21 +420,143 @@
   .facility-card__face--back p { font-size: 0.78rem; }
 }
 /*  */
+/* ── FACILITIES PAGE MOBILE FIXES ── */
 @media (max-width: 767px) {
+  /* Page banner */
   .page-banner {
-    padding: calc(var(--nav-height) + 1rem) 0 1rem;
-    text-align: center;
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .page-banner__inner {
-    padding: 0 1rem;
+    padding: calc(var(--nav-height) + 1rem) 0 1rem !important;
   }
   
   .page-banner h1 {
-    font-size: clamp(1.4rem, 6vw, 2rem);
-    word-break: break-word;
+    font-size: clamp(1.4rem, 6vw, 2rem) !important;
+  }
+  
+  .banner-pills {
+    gap: 0.25rem !important;
+    margin-top: 0.4rem !important;
+  }
+  
+  .banner-pill {
+    font-size: 0.62rem !important;
+    padding: 0.18em 0.5em !important;
+  }
+  
+  /* Facility cards */
+  .facility-card {
+    height: 240px !important;
+  }
+  
+  .facility-card__face--back p {
+    font-size: 0.78rem !important;
+  }
+  
+  .facility-card__face--back h3 {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Hostel photos */
+  .hostel-photo-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-xs) !important;
+  }
+  
+  /* Hostel accordion */
+  .hostel-accordion-wrap {
+    padding: var(--space-sm) !important;
+    border-radius: var(--radius-md) !important;
+  }
+  
+  .accordion-trigger {
+    font-size: 0.88rem !important;
+    padding: var(--space-xs) 0 !important;
+  }
+  
+  .accordion-panel__inner {
+    font-size: 0.78rem !important;
+  }
+  
+  .hostel-mini-list li {
+    font-size: 0.78rem !important;
+  }
+  
+  /* Transport */
+  .transport-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-md) !important;
+  }
+  
+  .route-list {
+    gap: var(--space-xs) !important;
+  }
+  
+  .route-item {
+    padding: 0.5rem var(--space-sm) !important;
+    font-size: 0.78rem !important;
+  }
+  
+  .transport-safety-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-xs) !important;
+  }
+  
+  .transport-safety-item {
+    font-size: 0.75rem !important;
+  }
+  
+  .transport-note {
+    font-size: 0.75rem !important;
+    padding: var(--space-xs) var(--space-sm) !important;
+  }
+  
+  /* Facilities gallery */
+  .facilities-gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: 120px !important;
+  }
+  
+  .facilities-gallery-grid__item:nth-child(1) {
+    grid-column: span 2 !important;
+    grid-row: span 1 !important;
+  }
+  
+  /* CTA */
+  .facilities-cta h2 {
+    font-size: clamp(1.2rem, 5vw, 1.7rem) !important;
+  }
+  
+  .facilities-cta p {
+    font-size: 0.82rem !important;
+  }
+  
+  .hero__actions {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .hero__actions .btn {
+    width: 100% !important;
+    max-width: 320px !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .facility-card {
+    height: 220px !important;
+  }
+  
+  .hostel-photo-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .transport-safety-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .facilities-gallery-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-auto-rows: 100px !important;
   }
 }
   </style>

@@ -571,57 +571,259 @@
 }
 
 
+/* ── ABOUT PAGE MOBILE FIXES ── */
 @media (max-width: 767px) {
+  /* Story grid */
   .story-grid {
     grid-template-columns: 1fr !important;
     gap: var(--space-md) !important;
   }
   
-  .affiliation-grid {
-    grid-template-columns: 1fr !important;
+  .story-text p {
+    font-size: 0.9rem !important;
   }
   
+  /* Timeline */
+  .timeline {
+    padding-left: 1.5rem !important;
+    margin-top: var(--space-md) !important;
+  }
+  
+  .timeline-item {
+    margin-bottom: var(--space-md) !important;
+  }
+  
+  .timeline-item h3 {
+    font-size: 0.9rem !important;
+  }
+  
+  .timeline-item p {
+    font-size: 0.8rem !important;
+  }
+  
+  /* Principal section */
+  .principal-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-md) !important;
+  }
+  
+  .principal-photo-wrap {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-sm) !important;
+    text-align: left !important;
+  }
+  
+  .principal-photo {
+    width: 80px !important;
+    height: 80px !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .principal-quote-card {
+    padding: var(--space-sm) !important;
+  }
+  
+  .principal-quote-card::before {
+    font-size: 2.5rem !important;
+  }
+  
+  .principal-quote-card p {
+    font-size: 0.85rem !important;
+  }
+  
+  /* Mission Vision */
   .mv-grid {
     grid-template-columns: 1fr !important;
+    gap: var(--space-sm) !important;
+  }
+  
+  .mv-card {
+    padding: var(--space-md) var(--space-sm) !important;
+  }
+  
+  .mv-card p {
+    font-size: 0.82rem !important;
+  }
+  
+  /* Value highlights */
+  .ah-item {
+    font-size: 0.82rem !important;
+  }
+  
+  /* Achievements */
+  .achievements-section {
+    padding: var(--space-xl) 0 !important;
   }
   
   .achievements-grid {
     grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-sm) !important;
+    margin-top: var(--space-md) !important;
   }
   
-  .principal-grid {
+  .ach-card {
+    padding: var(--space-sm) !important;
+  }
+  
+  .ach-card__number {
+    font-size: clamp(1.6rem, 4vw, 2.4rem) !important;
+  }
+  
+  .ach-card__label {
+    font-size: 0.7rem !important;
+  }
+  
+  .ach-badges {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  
+  .ach-badge {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Infrastructure */
+  .infra-gallery {
+    grid-template-columns: 1fr 1fr !important;
+    grid-auto-rows: 130px !important;
+  }
+  
+  .infra-gallery__item:first-child {
+    grid-column: span 2 !important;
+    grid-row: span 1 !important;
+    aspect-ratio: 16/9 !important;
+  }
+  
+  /* Affiliation */
+  .affiliation-grid {
     grid-template-columns: 1fr !important;
+    gap: var(--space-md) !important;
+  }
+  
+  .aff-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: var(--radius-md) !important;
+  }
+  
+  .aff-table {
+    min-width: 320px !important;
+    font-size: 0.78rem !important;
+  }
+  
+  .aff-table td,
+  .aff-table th {
+    padding: 0.5rem 0.75rem !important;
+  }
+  
+  .aff-info-cards {
+    gap: var(--space-xs) !important;
+  }
+  
+  .aff-info-card {
+    padding: var(--space-sm) !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  .aff-info-card__icon {
+    width: 38px !important;
+    height: 38px !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .aff-info-card strong {
+    font-size: 0.85rem !important;
+  }
+  
+  .aff-info-card span {
+    font-size: 0.75rem !important;
+  }
+  
+  /* CTA */
+  .about-cta {
+    padding: var(--space-lg) 0 !important;
+  }
+  
+  .about-cta h2 {
+    font-size: clamp(1.3rem, 5vw, 1.8rem) !important;
+  }
+  
+  .about-cta p {
+    font-size: 0.85rem !important;
+    padding: 0 var(--space-xs) !important;
+  }
+  
+  .hero__actions {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .hero__actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  
+  /* Page banner */
+  .page-banner {
+    padding: calc(var(--nav-height) + 1rem) 0 1rem !important;
+  }
+  
+  .page-banner h1 {
+    font-size: clamp(1.4rem, 6vw, 2rem) !important;
+    word-break: break-word !important;
+  }
+  
+  .page-banner p {
+    font-size: 0.82rem !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  .banner-pills {
+    gap: 0.25rem !important;
+    margin-top: 0.4rem !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  
+  .banner-pill {
+    font-size: 0.65rem !important;
+    padding: 0.2em 0.55em !important;
   }
 }
 
 @media (max-width: 480px) {
-  .achievements-grid { grid-template-columns: 1fr 1fr; }
-  .infra-gallery { grid-template-columns: 1fr; }
-  .infra-gallery__item:first-child { grid-column: span 1; }
-  .mv-grid { grid-template-columns: 1fr; }
-  .principal-photo-wrap { flex-direction: column; text-align: center; }
-  .principal-photo { width: 110px; height: 110px; }
-}
-
-/*  */
-
-@media (max-width: 767px) {
-  .page-banner {
-    padding: calc(var(--nav-height) + 1rem) 0 1rem;
-    text-align: center;
-    width: 100%;
-    overflow: hidden;
+  .achievements-grid {
+    grid-template-columns: 1fr 1fr !important;
   }
   
-  .page-banner__inner {
-    padding: 0 1rem;
+  .infra-gallery {
+    grid-template-columns: 1fr !important;
   }
   
-  .page-banner h1 {
-    font-size: clamp(1.4rem, 6vw, 2rem);
-    word-break: break-word;
+  .infra-gallery__item:first-child {
+    grid-column: span 1 !important;
+  }
+  
+  .principal-photo-wrap {
+    flex-direction: column !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+  
+  .principal-photo {
+    width: 90px !important;
+    height: 90px !important;
+  }
+  
+  .aff-table {
+    min-width: 280px !important;
+    font-size: 0.72rem !important;
   }
 }
+
   </style>
 
   <!-- ===== JSON-LD STRUCTURED DATA ===== -->

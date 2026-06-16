@@ -473,21 +473,219 @@
 }
 
 /*  */
+/* ── ACADEMICS PAGE MOBILE FIXES ── */
 @media (max-width: 767px) {
+  /* Page banner */
   .page-banner {
-    padding: calc(var(--nav-height) + 1rem) 0 1rem;
-    text-align: center;
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .page-banner__inner {
-    padding: 0 1rem;
+    padding: calc(var(--nav-height) + 1rem) 0 1rem !important;
   }
   
   .page-banner h1 {
-    font-size: clamp(1.4rem, 6vw, 2rem);
-    word-break: break-word;
+    font-size: clamp(1.4rem, 6vw, 2rem) !important;
+  }
+  
+  .banner-pills {
+    gap: 0.25rem !important;
+  }
+  
+  .banner-pill {
+    font-size: 0.65rem !important;
+    padding: 0.2em 0.55em !important;
+  }
+  
+  /* Class cards */
+  .class-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-sm) !important;
+  }
+  
+  .class-card__img {
+    height: 150px !important;
+  }
+  
+  .class-card__body {
+    padding: var(--space-sm) !important;
+  }
+  
+  .class-card__body p,
+  .class-card__meta {
+    font-size: 0.78rem !important;
+  }
+  
+  .subjects-list {
+    gap: 0.2rem !important;
+  }
+  
+  .subject-item {
+    font-size: 0.78rem !important;
+  }
+  
+  .class-card__footer {
+    padding: var(--space-xs) var(--space-sm) !important;
+    font-size: 0.78rem !important;
+  }
+  
+  /* Methodology */
+  .method-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-md) !important;
+  }
+  
+  .method-features {
+    gap: var(--space-xs) !important;
+  }
+  
+  .method-item {
+    padding: var(--space-xs) var(--space-sm) !important;
+  }
+  
+  .method-item strong {
+    font-size: 0.85rem !important;
+  }
+  
+  .method-item p {
+    font-size: 0.75rem !important;
+  }
+  
+  .method-stat strong {
+    font-size: 1.3rem !important;
+  }
+  
+  /* Routine */
+  .routine-timeline {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-xs) !important;
+  }
+  
+  .routine-slot {
+    padding: var(--space-xs) var(--space-sm) !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  .routine-slot__time {
+    min-width: 60px !important;
+    font-size: 0.78rem !important;
+  }
+  
+  .routine-slot__activity strong {
+    font-size: 0.82rem !important;
+  }
+  
+  .routine-slot__activity span {
+    font-size: 0.72rem !important;
+  }
+  
+  .routine-slot__icon {
+    font-size: 1.1rem !important;
+  }
+  
+  /* Calendar table */
+  .calendar-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  .calendar-table {
+    min-width: 480px !important;
+    font-size: 0.78rem !important;
+  }
+  
+  .calendar-table td,
+  .calendar-table th {
+    padding: 0.5rem 0.75rem !important;
+  }
+  
+  .calendar-note {
+    font-size: 0.78rem !important;
+    padding: var(--space-xs) var(--space-sm) !important;
+  }
+  
+  /* Activities */
+  .activity-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-sm) !important;
+  }
+  
+  .activity-card__img {
+    height: 150px !important;
+  }
+  
+  .activity-card__body {
+    padding: var(--space-sm) !important;
+  }
+  
+  .activity-card__body h3 {
+    font-size: 0.95rem !important;
+  }
+  
+  .activity-card__body p {
+    font-size: 0.78rem !important;
+  }
+  
+  /* Value cards */
+  .value-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-sm) !important;
+  }
+  
+  .value-card {
+    padding: var(--space-sm) !important;
+  }
+  
+  .value-card__emoji {
+    font-size: 1.8rem !important;
+  }
+  
+  .value-card h3 {
+    font-size: 0.88rem !important;
+  }
+  
+  .value-card p {
+    font-size: 0.75rem !important;
+  }
+  
+  /* CTA */
+  .academics-cta p {
+    font-size: 0.85rem !important;
+    padding: 0 var(--space-xs) !important;
+  }
+  
+  .hero__actions {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .hero__actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    max-width: 320px !important;
+  }
+  
+  /* Subjects strip */
+  .subjects-strip__track {
+    animation-duration: 18s !important;
+  }
+  
+  .subject-pill {
+    font-size: 0.75rem !important;
+    padding: 0.35em 0.85em !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .value-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .calendar-table {
+    min-width: 420px !important;
+    font-size: 0.72rem !important;
+  }
+  
+  .routine-slot__time {
+    min-width: 55px !important;
+    font-size: 0.72rem !important;
   }
 }
   </style>

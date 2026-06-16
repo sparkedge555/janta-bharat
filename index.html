@@ -62,26 +62,150 @@
   <!--  -->
   <style>
 /* ── HOME PAGE MOBILE FIXES ── */
+
+/* Global overflow fix */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 @media (max-width: 767px) {
-  .hero__actions { width: 100%; }
-  .about-snapshot { gap: var(--space-lg); }
-  .hostel-grid { grid-template-columns: 1fr; }
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 120px;
+  /* Hero */
+  .hero {
+    width: 100vw !important;
+    min-height: 100vh !important;
+    overflow: hidden !important;
   }
+  
+  .hero__actions {
+    width: 100% !important;
+    flex-direction: column !important;
+  }
+  
+  .btn-hero-primary,
+  .btn-hero-outline {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  
+  /* About snapshot */
+  .about-snapshot {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-md) !important;
+  }
+  
+  .about-snapshot__media {
+    width: 100% !important;
+  }
+  
+  .about-snapshot__badge {
+    display: none !important;
+  }
+  
+  /* Feature cards */
+  .grid--auto-fit {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-sm) !important;
+  }
+  
+  .feature-card {
+    padding: var(--space-sm) !important;
+  }
+  
+  /* Admission CTA */
+  .admission-cta-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-md) !important;
+  }
+  
+  .admission-features {
+    gap: var(--space-xs) !important;
+  }
+  
+  .admission-cta__actions {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  
+  .admission-cta__actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-sm) !important;
+  }
+  
+  .stat-item__number {
+    font-size: clamp(1.8rem, 5vw, 2.4rem) !important;
+  }
+  
+  /* Hostel grid */
+  .hostel-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .hostel-card:last-child {
+    grid-column: auto !important;
+    max-width: 100% !important;
+  }
+  
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: 110px !important;
+  }
+  
   .gallery-grid__item:nth-child(1),
-  .gallery-grid__item:nth-child(6) { grid-column: span 2; grid-row: span 1; }
-  .admission-cta-grid { grid-template-columns: 1fr; }
-  .classes-card { margin-top: var(--space-md); }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid__item:nth-child(6) {
+    grid-column: span 2 !important;
+    grid-row: span 1 !important;
+  }
+  
+  /* Classes card */
+  .classes-card {
+    margin-top: var(--space-md) !important;
+    border-radius: var(--radius-lg) !important;
+  }
+  
+  /* CTA section */
+  .section--green .hero__actions {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .section--green .btn {
+    width: 100% !important;
+    max-width: 320px !important;
+    justify-content: center !important;
+  }
 }
 
 @media (max-width: 480px) {
-  .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 110px; }
-  .stats-grid { grid-template-columns: 1fr 1fr; }
-  .feature-card { padding: var(--space-md) var(--space-sm); }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-auto-rows: 100px !important;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  
+  .feature-card {
+    padding: 0.75rem !important;
+  }
+  
+  .grid--auto-fit {
+    grid-template-columns: 1fr !important;
+  }
 }
+
 
 /*  */
 @media (max-width: 767px) {

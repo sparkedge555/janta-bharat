@@ -335,9 +335,10 @@ p:last-child { margin-bottom: 0; }
   font-size: 1.05rem;
   color: var(--color-green-900);
   line-height: 1.2;
-  flex-shrink: 1;
+  flex-shrink: 0;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
+  white-space: nowrap;
 }
 .nav-brand:hover { color: var(--color-green-900); }
 .nav-brand__logo {
@@ -352,10 +353,11 @@ p:last-child { margin-bottom: 0; }
   padding: 4px;
 }
 .nav-brand__text {
-  overflow: hidden;
+  overflow: visible;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  text-overflow: unset;
   min-width: 0;
+  font-size: 1rem;
 }
 .nav-brand__text small {
   display: block;
@@ -529,6 +531,7 @@ nav { display: flex; align-items: center; }
   align-items: center;
   overflow: hidden;
   color: var(--color-cream-100);
+  width: 100%;
 }
 
 .hero__media {
@@ -540,8 +543,169 @@ nav { display: flex; align-items: center; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 35%;
+  object-position: center center;
   will-change: transform;
+  display: block;
+  max-width: 100%;
+}
+
+@media (max-width: 767px) {
+
+  /* Navbar brand full fix */
+  .nav-bar {
+    padding: 0 0.75rem !important;
+    gap: 0.4rem !important;
+    height: var(--nav-height) !important;
+  }
+  
+  .nav-brand {
+    flex: 1 !important;
+    min-width: 0 !important;
+    flex-shrink: 1 !important;
+    gap: 0.4rem !important;
+    overflow: hidden !important;
+  }
+  
+  .nav-brand__logo {
+    width: 32px !important;
+    height: 32px !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .nav-brand__text {
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    font-size: 0.75rem !important;
+    line-height: 1.2 !important;
+    min-width: 0 !important;
+    display: block !important;
+  }
+  
+  .nav-brand__text small {
+    display: none !important;
+  }
+  
+  .nav-toggle {
+    display: flex !important;
+    flex-shrink: 0 !important;
+    width: 40px !important;
+    height: 40px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.4rem !important;
+  }
+
+  /* Footer complete mobile fix */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-md) !important;
+  }
+  
+  .footer-col__heading {
+    font-size: 0.9rem !important;
+    margin-bottom: var(--space-sm) !important;
+  }
+  
+  .footer-tagline {
+    font-size: 0.78rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  .footer-udise {
+    flex-direction: column !important;
+    gap: 0.3rem !important;
+  }
+  
+  .udise-chip {
+    font-size: 0.7rem !important;
+  }
+  
+  .footer-links a {
+    font-size: 0.82rem !important;
+    padding: 0.1rem 0 !important;
+  }
+  
+  .footer-contact-list li {
+    font-size: 0.78rem !important;
+    gap: 0.35rem !important;
+  }
+  
+  .footer-contact-list span,
+  .footer-contact-list a {
+    font-size: 0.78rem !important;
+  }
+  
+  .footer-admission-box {
+    padding: var(--space-sm) !important;
+  }
+  
+  .footer-admission-box p {
+    font-size: 0.82rem !important;
+  }
+
+  .hero {
+    min-height: 100svh;
+    min-height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+  }
+  
+  .hero__media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+  
+  .hero__content {
+    padding: 1.5rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100vw;
+  }
+  
+  .hero__title {
+    font-size: clamp(1.6rem, 7vw, 2.4rem) !important;
+    word-break: break-word;
+  }
+  
+  .hero__subtitle {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+  
+  .hero__actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+  
+  .btn-hero-primary,
+  .btn-hero-outline {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .btn-hero-ghost {
+    display: none;
+  }
+  
+  .hero__trust-badges {
+    display: none;
+  }
+  
+  .hero__info-pills {
+    display: none;
+  }
 }
 
 .hero__overlay {
@@ -1896,21 +2060,39 @@ nav.has-open-menu {
   .btn-apply { width: 100%; justify-content: center; }
 
   /* ── BREADCRUMB ── */
-  .breadcrumb {
-    padding: 0.35rem 0;
+.breadcrumb {
+    padding: 0.25rem 0 !important;
     border-bottom: 1px solid var(--color-line-200);
+    min-height: unset !important;
+    height: auto !important;
   }
 
   .breadcrumb .container {
-    padding: 0 0.75rem;
+    padding: 0 0.75rem !important;
   }
 
   .breadcrumb__list {
-    font-size: 0.72rem;
-    gap: 0.2rem;
-    flex-wrap: wrap;
-    line-height: 1.5;
-    align-items: center;
+    font-size: 0.7rem !important;
+    gap: 0.15rem !important;
+    flex-wrap: nowrap !important;
+    line-height: 1.2 !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    padding: 0.2rem 0 !important;
+    margin: 0 !important;
+  }
+  
+  .breadcrumb__list li {
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .breadcrumb__list li:last-child {
+    flex-shrink: 1 !important;
+    overflow: hidden !important;
   }
 
   .breadcrumb__list a {
@@ -2084,7 +2266,11 @@ nav.has-open-menu {
   .hero__title { font-size: clamp(1.5rem, 8vw, 2rem); }
 
   .breadcrumb {
-    padding: 0.3rem 0;
+    padding: 0.2rem 0 !important;
+  }
+  
+  .breadcrumb__list {
+    font-size: 0.65rem !important;
   }
 
   .breadcrumb .container {
@@ -2177,14 +2363,15 @@ body {
   }
   
   /* Fix breadcrumb positioning */
-  .breadcrumb {
-    position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    float: none !important;
-    width: 100% !important;
-    display: block !important;
-  }
+.breadcrumb {
+  background: var(--color-cream-200);
+  border-bottom: 1px solid var(--color-line-200);
+  padding: 0.4rem 0;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+}
   
   .breadcrumb .container {
     width: 100% !important;
